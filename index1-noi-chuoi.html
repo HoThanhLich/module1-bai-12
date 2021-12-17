@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let myClolor = [];
+    let kiemTra = true;
+    let chuoi;
+    while (kiemTra) {
+        let a = prompt('mời nhập chuỗi màu yêu thích:  ');
+        if (a == null) {
+            alert('bạn đã hoàn thành')
+            break;
+        }
+        myClolor.push(a);
+    }
+    chuoi = myClolor.toString();
+    alert('màu yêu thích là : ' + chuoi);
+
+
+</script>
+</body>
+</html>
