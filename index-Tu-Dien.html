@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table>
+    <tr>
+        <td>
+            <select name="" id="select1" style="width: 180px">
+                <option value="1">Tiếng Việt</option>
+                <option value="2">Tiếng Anh</option>
+            </select>
+        </td>
+        <td>
+            <select name="" id="select2" style="width: 180px">
+                <option value="2">Tiếng Anh</option>
+                <option value="1">Tiếng Việt</option>
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <td><input type="text" id="dauVao" placeholder="Từ muốn tra" style="width: 180px"></td>
+        <td><input type="text" id="dauRa" placeholder="kết quả" style="width: 180px"></td>
+
+    </tr>
+    <tr>
+        <td>
+            <button onclick="kiemTra()" style=" color: blue">Dịch</button>
+        </td>
+        <td>
+            <button onclick="xoa()" style="color: blue">Reset</button>
+        </td>
+
+    </tr>
+</table>
+
+<script>
+    let tiengAnh = ['apple', 'orange', 'banana', 'tomato'];
+    let tiengViet = ['táo', 'cam', 'chuối', 'cà chua'];
+
+    function kiemTra() {
+        let language1 = document.getElementById('select1').value;
+        let language2 = document.getElementById('select2').value;
+        let tuMuonTra = document.getElementById('dauVao').value;
+        let index1 = -1;
+        let index2 = -1;
+        if (language1 === language2) {
+            alert('vui lòng chọn lại ngôn ngữ')
+        } else if (language1 == 2 && language2 == 1) {
+            for (i = 0; i < tiengAnh.length; i++) {
+                if (tuMuonTra == tiengAnh[i]) {
+                    index1 = i;
+                    break;
+                }
+            }
+            if (index1 === -1) {
+                document.getElementById('dauRa').innerHTML = ' không tìm thấy';
+            } else {
+                document.getElementById('dauRa').innerHTML = tiengViet[i];
+            }
+
+        } else if (language1 == 1 && language2 == 2) {
+            for (i = 0; i < tiengViet.length; i++) {
+                if (tuMuonTra === tiengViet[i]) {
+                    index2 = i;
+                    break;
+                }
+            }
+            if (index2 === -1) {
+                document.getElementById('dauRa').innerHTML = ' không tìm thấy';
+            } else {
+                document.getElementById('dauRa').innerHTML = tiengAnh[i];
+
+            }
+        }
+    }
+
+    function xoa() {
+        document.getElementById("vocabulary").value = "";
+        document.getElementById("result").value = "";
+    }
+
+</script>
+</body>
+</html>
